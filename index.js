@@ -75,12 +75,14 @@ app.use(function(req, res, next) {
 });
 
 app.get("/welcome", function(req, res) {
-    // if (req.session.userId) {
+    //if (req.session.userId) {
     //     res.redirect("/");
     // } else {
     res.sendFile(__dirname + "/index.html");
     //}
 });
+
+// route for registering new members
 
 app.post("/register", (req, res) => {
     let { first, last, email, password } = req.body;
@@ -98,6 +100,8 @@ app.post("/register", (req, res) => {
             res.sendStatus(500);
         });
 });
+
+// login route for registered members
 
 app.post("/login", (req, res) => {
     let { email, password } = req.body;
@@ -123,18 +127,19 @@ app.post("/login", (req, res) => {
         });
 });
 
-// app.get("/user", function(req, res) {
-//     // get user info from the DB
-//     db.getUser(req.session.userId)
-//         .then(({ rows }) => {
-//             // console.log("getUser rows: ", rows);
-//             res.json(rows[0]);
-//         })
-//         .catch(error => {
-//             console.log(error);
-//             res.sendStatus(500);
-//         });
-// });
+app.get("/user", function(req, res) {
+    // do it for file
+    // get user info from the DB
+    db.getUser(req.session.userId)
+        .then(({ rows }) => {
+            // console.log("getUser rows: ", rows);
+            res.json(rows[0]);
+        })
+        .catch(error => {
+            console.log(error);
+            res.sendStatus(500);
+        });
+});
 
 app.post("/upload", uploader.single("image"), s3.upload, function(req, res) {
     //console.log("upload file: ", req.file);
@@ -168,52 +173,53 @@ app.post("/upload", uploader.single("image"), s3.upload, function(req, res) {
 //         });
 // });
 
-app.get("/api/user/:id", (req, res) => {
-    //console.log("req.params.id: ", req.params.id);
-    let userId = req.params.id;
-
-    //if
-
-    db.getUser(userId)
-        .then(result => {
-            //console.log("user id rows: ", result.rows[0]);
-            if (result.rows[0].id == req.session.userId || !result.rows[0]) {
-                //res.json({ loggedUser: true });
-                res.sendStatus(204);
-            } else {
-                //    console.log("api user else block: ", result.rows[0]);
-                res.json(result.rows[0]);
-            }
-        })
-        .catch(err => {
-            console.log(err);
-            res.sendStatus(500);
-        });
-});
-
-app.get("/api/data", (req, res) => {
-    db.latestUsers(req.session.userId)
-        .then(result => {
-            //console.log("latest users: ", result.rows);
-            res.json(result.rows);
-        })
-        .catch(err => {
-            console.log(err);
-            res.sendStatus(500);
-        });
-});
-
-app.get("/api/data/:input", (req, res) => {
-    db.findPeople(req.params.input)
-        .then(result => {
-            //console.log("searched users: ", result);
-            res.json(result.rows);
-        })
-        .catch(err => {
-            console.log(err);
-            res.sendStatus(500);
-        });
-});
+//get details for files?
+// app.get("/api/user/:id", (req, res) => {
+//     //console.log("req.params.id: ", req.params.id);
+//     let userId = req.params.id;
+//
+//     //if
+//
+//     db.getUser(userId)
+//         .then(result => {
+//             //console.log("user id rows: ", result.rows[0]);
+//             if (result.rows[0].id == req.session.userId || !result.rows[0]) {
+//                 //res.json({ loggedUser: true });
+//                 res.sendStatus(204);
+//             } else {
+//                 //    console.log("api user else block: ", result.rows[0]);
+//                 res.json(result.rows[0]);
+//             }
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.sendStatus(500);
+//         });
+// });
+//
+// app.get("/api/data", (req, res) => {
+//     db.latestUsers(req.session.userId)
+//         .then(result => {
+//             //console.log("latest users: ", result.rows);
+//             res.json(result.rows);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.sendStatus(500);
+//         });
+// });
+//
+// app.get("/api/data/:input", (req, res) => {
+//     db.findPeople(req.params.input)
+//         .then(result => {
+//             //console.log("searched users: ", result);
+//             res.json(result.rows);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.sendStatus(500);
+//         });
+// });
 
 // app.get("/friendship-status/:id", (req, res) => {
 //     console.log("sender: ", req.session.userId);

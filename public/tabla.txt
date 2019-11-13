@@ -1,0 +1,4 @@
+ID   |        RA  |         DEC |       File_name |
+
+HOT  | 5:38:36.9  | -69:05:07.7 |  30Dor_cool.dat |
+COOL | 5:38:48.5  | -69:05:32.5 |  30Dor_cool.dat |
