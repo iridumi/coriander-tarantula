@@ -29,7 +29,7 @@ export default class Login extends React.Component {
             })
             .then(({ data }) => {
                 if (data.success) {
-                    location.replace("/");
+                    location.replace("/data");
                 } else {
                     this.setState({
                         error: true
@@ -50,18 +50,20 @@ export default class Login extends React.Component {
                 {this.state.error && (
                     <div className="error">Oops! That was your fault!</div>
                 )}
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    onChange={e => this.handleChange(e)}
-                />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    onChange={e => this.handleChange(e)}
-                />
+                <div id="input-fields">
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        onChange={e => this.handleChange(e)}
+                    />
+                    <input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        onChange={e => this.handleChange(e)}
+                    />
+                </div>
                 <button onClick={() => this.submit()}>Log in</button>
             </div>
         );

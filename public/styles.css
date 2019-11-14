@@ -6,7 +6,8 @@
 body,
 html {
     height: 100%;
-    font-family: "NittiGrotesk", Helvetica, Roboto, Arial, sans-serif;
+    font-family: "Questrial", sans-serif;
+    /* font-size: 17px; */
 }
 
 #canvas-svg {
@@ -66,6 +67,8 @@ html {
 
 .hiddenH-text {
     place-self: center;
+    font-size: 20px;
+    color: black;
 }
 
 .header-text a {
@@ -77,8 +80,8 @@ html {
 }
 
 .hiddenHPic {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     /* object-fit: cover; */
     margin-top: 5px;
     display: grid;
@@ -91,8 +94,8 @@ html {
 }
 
 .hiddenHPic img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -112,10 +115,24 @@ html {
     display: grid;
     justify-items: center;
     align-items: center;
+    /* background-color: white;
+    border-radius: 50%; */
+    /* box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.5); */
+}
+
+.logoH {
+    width: 100px;
+    height: 100px;
+    /* object-fit: cover; */
+    margin-top: 5px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
     background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.5);
+    /* border-radius: 50%; */
+    /* box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.5); */
 }
 
 .logo img {
@@ -137,22 +154,24 @@ html {
 }
 
 .App {
-    padding-top: 110px;
+    margin-top: 110px;
 }
 
 .uploader {
     position: fixed;
     top: 12%;
     right: 5%;
-    /* transform: translateX(50%); */
+    /* top: 30%;
+    left: 50%;
+    transform: translateX(-50%); */
     height: 200px;
     width: 400px;
     z-index: 150;
     border-radius: 20px;
     /* background-color: rgb(0, 0, 0, 0.5); */
-    background-color: rgb(255, 250, 250, 0.9);
+    background-color: rgb(0, 0, 0, 0.5);
     display: grid;
-    align-items: center;
+    place-items: center;
 }
 
 .info,
@@ -176,33 +195,74 @@ html {
     color: white;
     /* line-height: 5px; */
     margin: 0;
-    padding-top: 110px;
+    margin-top: 110px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 1% 50% auto;
+    padding-top: 30px;
 }
 
-.intro p {
+/* .intro-container {
+    height: 500px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 70% 30%;
+} */
+
+#title {
     color: white;
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
 }
+
+/* .first-letter {
+    font-size: 35px;
+    line-height: 70px;
+} */
 
 #quote {
     font-style: oblique;
     font-size: 20px;
+    padding-top: 100px;
+    padding-left: 60%;
+    padding-right: 5%;
+    line-height: 1.2;
+}
+
+#author {
+    font-style: normal;
+    font-size: 20px;
+}
+
+#introduction {
+    padding-top: 40px;
+    text-align: center;
+    line-height: 2;
+    font-size: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
 hr {
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    /* margin-left: auto;
-    margin-right: auto; */
-
-    margin-left: 30px;
-    margin-right: 30px;
-    border-style: inset;
-    border-width: 0.5px;
+    /* width: 100%; */
+    width: 70%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 0.1px;
 }
+
+/* #hr-contact hr {
+    /* width: 100%; */
+/* width: 70%;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    color: silver;
+    height: 0.1px;
+    padding-bottom: 50px;
+} */
 
 .info {
     padding: 70px;
@@ -216,6 +276,15 @@ hr {
     text-align: center;
     padding-right: 40px;
     line-height: 150%;
+    font-size: 17px;
+}
+
+.info #title {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .card {
@@ -228,9 +297,9 @@ hr {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: white;
+    /* background-color: white;
     box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.5);
+        0 10px 10px rgba(0, 0, 0, 0.5); */
 }
 
 .card img {
@@ -239,20 +308,96 @@ hr {
     object-fit: cover;
 }
 
-.card img:hover {
-    /* border: 2px solid midnightblue; */
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
+.card p {
+    font-size: 12px;
+    justify-self: end;
+}
+
+#people {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.people-info {
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact span {
+    font-size: 70px;
+}
+
+.people img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.people-card {
+    display: grid;
+    place-items: center;
+    grid-gap: 20px;
+}
+
+#press {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#publications {
+    padding-top: 60px;
+    padding-left: 60px;
+}
+
+li {
+    font-size: 20px;
+    line-height: 2;
 }
 
 .contact {
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-color: black;
     color: white;
-    padding: 70px;
-    color: grey;
+    /* padding: 70px;
+    color: grey; */
+}
+
+.calendar {
+    background-image: url("");
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+}
+
+.calendar hr {
+    width: 70%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 0.1px;
+}
+
+.calendar ul {
+    padding-top: 5%;
+}
+
+.past {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.future {
+    padding-top: 30px;
+    margin-top: 10%;
+    text-align: center;
 }
 
 .blank0 {
@@ -264,8 +409,15 @@ hr {
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
-    grid-template-columns: 65% 35%;
-    grid-template-rows: 60% 40%;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 70% 30%;
+}
+
+.blank0-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .blank1 {
@@ -277,8 +429,8 @@ hr {
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
-    grid-template-columns: 65% 35%;
-    grid-template-rows: 60% 40%;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 70% 30%;
 }
 
 .blank1-text {
@@ -296,59 +448,163 @@ hr {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 70% 30%;
+}
+
+.blank2-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .blank3 {
     width: 100%;
     height: 500px;
-    background-image: url(/img/electronic_density_rainbow.png);
+    background-image: url(/img/velocity.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
-    grid-template-columns: 65% 35%;
-    grid-template-rows: 60% 40%;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 70% 30%;
+}
+
+.blank3-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .chat {
     display: grid;
-    margin-top: 120px;
-    /* display: grid;
-    justify-items: center;
-    align-items: center; */
-    padding-top: 150px;
-    align-self: center;
-    /* position: relative;
-    top: 100px; */
-    border: 2px solid red;
+    margin-top: 150px;
+    place-items: center;
+    /* border: 2px solid red; */
 }
 
 .chat-container {
-    height: 300px;
+    height: 400px;
     width: 90vw;
     overflow-y: scroll;
     /* background-color: rgba(250, 250, 250, 0.5); */
     align-self: center;
+    padding: 2%;
+    border-top: 1px solid lightseagreen;
+    border-bottom: 1px solid lightseagreen;
+    /* border-radius: 20px; */
+    /* margin: 20px; */
 }
 
 .chat-container img {
     width: 50px;
     height: 50px;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .chat textarea {
     width: 90vw;
-    height: 50px;
+    height: 100px;
     color: black;
     margin: 20px;
     border-radius: 20px;
-    border: 1px solid lime;
+    border: 1px solid lightseagreen;
     padding: 10px;
     align-self: center;
 }
 
 .chat textarea:focus {
     outline: none;
+}
+
+.files-container {
+    display: grid;
+    place-items: center;
+    grid-gap: 20px;
+}
+
+.files-container input {
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    border-bottom: 0.5px solid black;
+    /* border-bottom: 1px solid black; */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.data-card {
+    width: 500;
+    height: 400px;
+    border: 1px solid lightseagreen;
+    display: grid;
+    place-items: center;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.data-card p {
+    place-self: center;
+}
+
+#files img {
+    width: 300;
+    height: 300px;
+    object-fit: cover;
+}
+
+#registration {
+    padding-top: 200px;
+    display: grid;
+    place-items: center;
+}
+
+#login {
+    display: grid;
+    place-items: center;
+}
+
+#login input,
+#reg-fields input {
+    /* width: 300px;
+    height: 50px; */
+    background-color: white;
+    border-bottom: 0.5px solid black;
+    /* border-bottom: 1px solid black; */
+    border-top: none;
+    border-left: none;
+    border-right: 0.5px solid black;
+}
+
+#login button,
+#registration button {
+    background-color: transparent;
+    color: grey;
+    align-self: center;
+    border: 0.5px solid white;
+}
+
+#contact {
+    color: white;
+    font-size: 25px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+#address {
+    color: silver;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    line-height: 2;
 }

@@ -173,7 +173,7 @@ app.post("/upload", uploader.single("image"), s3.upload, function(req, res) {
 //         });
 // });
 
-//get details for files?
+// get details for files?
 // app.get("/api/user/:id", (req, res) => {
 //     //console.log("req.params.id: ", req.params.id);
 //     let userId = req.params.id;
@@ -196,30 +196,31 @@ app.post("/upload", uploader.single("image"), s3.upload, function(req, res) {
 //             res.sendStatus(500);
 //         });
 // });
-//
-// app.get("/api/data", (req, res) => {
-//     db.latestUsers(req.session.userId)
-//         .then(result => {
-//             //console.log("latest users: ", result.rows);
-//             res.json(result.rows);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         });
-// });
-//
-// app.get("/api/data/:input", (req, res) => {
-//     db.findPeople(req.params.input)
-//         .then(result => {
-//             //console.log("searched users: ", result);
-//             res.json(result.rows);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         });
-// });
+
+app.get("/api/data", (req, res) => {
+    console.log("data route");
+    db.latestFiles()
+        .then(result => {
+            console.log("latest files: ", result.rows);
+            res.json(result.rows);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
+
+app.get("/api/data/:input", (req, res) => {
+    db.findFiles(req.params.input)
+        .then(result => {
+            console.log("searched files: ", result);
+            res.json(result.rows);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
 
 // app.get("/friendship-status/:id", (req, res) => {
 //     console.log("sender: ", req.session.userId);

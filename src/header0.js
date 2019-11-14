@@ -15,7 +15,7 @@ export default function HeaderH({ imgUrl, toggleModal }) {
             </div>
 
             <div className="hiddenH-text">
-                <a href="/schedule">Schedule</a>
+                <Link to="/schedule">Schedule</Link>
             </div>
 
             <div className="hiddenH-text">

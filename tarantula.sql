@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS plots;
 
 CREATE TABLE plots(
     id SERIAL PRIMARY KEY,
-    ra REAL,
-    dec REAL,
+    ra FLOAT,
+    dec FLOAT,
     name VARCHAR(255) NOT NULL,
     file VARCHAR(255) NOT NULL,
     description TEXT,
-    url VARCHAR(300) NOT NULL,
+    url VARCHAR(300),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

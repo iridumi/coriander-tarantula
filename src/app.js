@@ -10,6 +10,7 @@ import * as d3 from "d3";
 import ProfilePic from "./profile-pic";
 import Uploader from "./uploader";
 import { Chat } from "./chat";
+import Schedule from "./schedule";
 
 export class App extends React.Component {
     constructor() {
@@ -110,6 +111,7 @@ export class App extends React.Component {
                             />
                         </div>
                     </div>
+                    <Route exact path="/schedule" component={Schedule} />
                 </div>
             </BrowserRouter>
         );

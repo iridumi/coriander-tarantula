@@ -32,7 +32,7 @@ export default class Register extends React.Component {
             })
             .then(({ data }) => {
                 if (data.success) {
-                    location.replace("/");
+                    location.replace("/data");
                 } else {
                     this.setState({
                         error: true
@@ -54,28 +54,30 @@ export default class Register extends React.Component {
                 {this.state.error && (
                     <div className="error">Oops! That was your fault!</div>
                 )}
-                <input
-                    name="first"
-                    placeholder="First Name"
-                    onChange={e => this.handleChange(e)}
-                />
-                <input
-                    name="last"
-                    placeholder="Last Name"
-                    onChange={e => this.handleChange(e)}
-                />
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    onChange={e => this.handleChange(e)}
-                />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    onChange={e => this.handleChange(e)}
-                />
+                <div id="reg-fields">
+                    <input
+                        name="first"
+                        placeholder="First Name"
+                        onChange={e => this.handleChange(e)}
+                    />
+                    <input
+                        name="last"
+                        placeholder="Last Name"
+                        onChange={e => this.handleChange(e)}
+                    />
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        onChange={e => this.handleChange(e)}
+                    />
+                    <input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        onChange={e => this.handleChange(e)}
+                    />
+                </div>
                 <button onClick={() => this.submit()}>Submit</button>
             </div>
         );

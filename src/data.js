@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "./axios";
+import Aladin from "./aladin";
 
 export default function Data() {
     const [files, setFiles] = useState([]);
@@ -30,28 +31,42 @@ export default function Data() {
     }, [userInput]);
 
     return (
-        <div className="users-container">
-            <input
-                name="user-input"
-                type="text"
-                placeholder="Search"
-                onChange={e => setUserInput(e.target.value)}
-            />
-            <p>Data:</p>
-            <div id="users">
-                {files.map(file => (
-                    <Link
-                        className="data-card"
-                        key={file.id}
-                        to={`/user/${file.id}`}
-                    >
-                        <img src={file.img} />
-                        <h3>
-                            {file.first} {file.last}
-                        </h3>
-                    </Link>
-                ))}
+        <div className="data">
+            <Aladin />
+
+            <div className="files-container">
+                <input
+                    name="user-input"
+                    type="text"
+                    placeholder="Search"
+                    onChange={e => setUserInput(e.target.value)}
+                />
+
+                <div id="files">
+                    {files.map(file => (
+                        <div className="data-card" key={file.id}>
+                            <Link key={file.id} to={`/data/${file.id}`}>
+                                <p>
+                                    {file.file}:{"   "}
+                                    {file.name}
+                                    {"   "} RA:{"   "} {file.ra}, {"   "}
+                                    DEC: {"   "}
+                                    {file.dec}
+                                </p>
+                                <img src={file.url} />
+                            </Link>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
 }
+
+//<img src={file.img} />
+// <input
+//     className="inputfile"
+//     type="file"
+//     accept="image/*"
+//     onChange={e => this.handleChange(e)}
+// />

@@ -43,7 +43,7 @@ export function Chat() {
                         <div className="msg-card" key={chatsid}>
                             <p>
                                 <img src={msg.image} />
-                                on {msg.created_at} {msg.first} {msg.last} said:
+                                {msg.first} {msg.last} said:
                             </p>
                             <p id="msg">{msg.message}</p>
                         </div>

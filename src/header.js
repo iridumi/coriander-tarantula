@@ -8,11 +8,10 @@ export default function Header() {
     return (
         <div className="header">
             <div>
-                <img className="logo" src="/img/logo_t.png" />
+                <img className="logo" src="/img/logo_white.png" />
             </div>
 
             <div className="header-text">
-                <Link to="/register">Register</Link>
                 <Link to="/login">Members Area</Link>
                 <div className="login">
                     <Route exact path="/login" render={props => <Login />} />
