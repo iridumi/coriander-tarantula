@@ -15,6 +15,11 @@ export default function Header() {
                 <Link to="/login">Members Area</Link>
                 <div className="login">
                     <Route exact path="/login" render={props => <Login />} />
+                    <Route
+                        exact
+                        path="/register"
+                        render={props => <Register />}
+                    />
                 </div>
             </div>
         </div>

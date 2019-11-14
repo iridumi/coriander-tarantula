@@ -111,7 +111,7 @@ export default class Welcome extends React.Component {
                         <hr />
                         <div className="people-info">
                             <div className="people-card">
-                                <img src="/img/default.jpg" />
+                                <img src="/img/Norberto_Castro.jpg" />
                                 <h3>Dr. Norberto Castro</h3>
                                 <p>Principal Investigator</p>
                             </div>

@@ -174,23 +174,23 @@ app.post("/upload", uploader.single("image"), s3.upload, function(req, res) {
 // });
 
 // get details for files?
-// app.get("/api/user/:id", (req, res) => {
-//     //console.log("req.params.id: ", req.params.id);
-//     let userId = req.params.id;
+// app.get("/api/data/:id", (req, res) => {
+//     console.log("req.params.id: ", req.params.id);
+//     let fileId = req.params.id;
 //
 //     //if
 //
-//     db.getUser(userId)
+//     db.getFile(fileId)
 //         .then(result => {
-//             //console.log("user id rows: ", result.rows[0]);
-//             if (result.rows[0].id == req.session.userId || !result.rows[0]) {
-//                 //res.json({ loggedUser: true });
-//                 res.sendStatus(204);
-//             } else {
-//                 //    console.log("api user else block: ", result.rows[0]);
-//                 res.json(result.rows[0]);
-//             }
+//             console.log("file id rows: ", result.rows[0]);
+//             //if (result.rows[0].id == req.session.userId || !result.rows[0]) {
+//             //res.json({ loggedUser: true });
+//             //    res.sendStatus(204);
+//             //} else {
+//             //    console.log("api user else block: ", result.rows[0]);
+//             res.json(result.rows[0]);
 //         })
+//         //})
 //         .catch(err => {
 //             console.log(err);
 //             res.sendStatus(500);
@@ -213,7 +213,7 @@ app.get("/api/data", (req, res) => {
 app.get("/api/data/:input", (req, res) => {
     db.findFiles(req.params.input)
         .then(result => {
-            console.log("searched files: ", result);
+            //console.log("searched files: ", result);
             res.json(result.rows);
         })
         .catch(err => {

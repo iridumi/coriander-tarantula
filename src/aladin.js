@@ -16,20 +16,28 @@ export default class Aladin extends React.Component {
 
         var marker1 = A.marker(84.65833333333333, -69.095, {
             popupTitle: "Tarantula Nebula",
-            popupDesc: "Object type: Star forming cluster"
+            popupDesc: "Object type: Star forming cluster",
+            color: "cyan"
         });
-        // var marker2 = A.marker(270.63206, -22.90555, {
-        //     popupTitle: "HD 164514",
-        //     popupDesc: "Object type: Star in cluster"
-        // });
-        // var marker3 = A.marker(270.598121, -23.030819, {
-        //     popupTitle: "HD 164492",
-        //     popupDesc: "Object type: Double star"
-        // });
+        var marker2 = A.marker(84.65375, -69.08547, {
+            popupTitle: "HOT",
+            popupDesc: "Blue supergiant",
+            color: "blue"
+        });
+        var marker3 = A.marker(84.70208, -69.092361, {
+            popupTitle: "COOL",
+            popupDesc: "Red supergiant",
+            color: "red"
+        });
         var markerLayer = A.catalog();
+        aladin.addCatalog(
+            A.catalogFromVizieR("J/A+A/614/A147/table3", "NGC2070", 2, {
+                onClick: "showTable"
+            })
+        );
         aladin.addCatalog(markerLayer);
-        //    markerLayer.addSources([marker1, marker2, marker3]);
-        markerLayer.addSources([marker1]);
+        markerLayer.addSources([marker1, marker2, marker3]);
+        //markerLayer.addSources([marker1]);
     }
 
     render() {

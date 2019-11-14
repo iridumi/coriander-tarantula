@@ -11,6 +11,7 @@ import ProfilePic from "./profile-pic";
 import Uploader from "./uploader";
 import { Chat } from "./chat";
 import Schedule from "./schedule";
+import File from "./file";
 
 export class App extends React.Component {
     constructor() {
@@ -97,6 +98,7 @@ export class App extends React.Component {
                     )}
                     <Route exact path="/chat" component={Chat} />
                     <Route exact path="/aladin" component={Aladin} />
+                    <Route path="/data/:id" component={File} />
                     <div className="App">
                         <div className="App-header">
                             <Route
